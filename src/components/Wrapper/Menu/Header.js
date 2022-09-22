@@ -9,7 +9,6 @@ let cx = classNames.bind(styles);
 
 
 function Header({ title, onBack }) {
-    console.log(title)
     return (
         <div className={cx('wrapper-language')} onClick={onBack}>
             <button style={{ backgroundColor: 'transparent' }} >

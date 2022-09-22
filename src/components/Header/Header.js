@@ -1,25 +1,21 @@
-import { useState } from 'react';
 import { Link } from "react-router-dom";
 // Tippy
-import Tippy from '@tippyjs/react/headless';
+
 import 'tippy.js/dist/tippy.css'; // optional
 // FontAwesomeIcon
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
-import { faMagnifyingGlass, faGear, faSignOut, faCoins, faUser, faCircleXmark, faSpinner, faPlus, faEllipsisVertical, faEarthAsia, faCircleQuestion, faKeyboard } from '@fortawesome/free-solid-svg-icons';
+import { faGear, faSignOut, faCoins, faUser, faPlus, faEllipsisVertical, faEarthAsia, faCircleQuestion, faKeyboard } from '@fortawesome/free-solid-svg-icons';
 // Elements
-import { Wrapper as PoperWrapper } from '~/components/Wrapper';
 import Menu from '~/components/Wrapper/Menu/Menu';
-import AccountItem from '~/components/AccountItem';
 import Button from '~/components/Button';
 import Image from '../Images';
 import { MessIcon, InboxIcon } from '~/components/Icons';
+import Search from '~/components/Search';
 // Classname cx
 import classNames from 'classnames/bind';
 import styles from './Header.module.scss';
 let cx = classNames.bind(styles);
 function Header() {
-    const [searchResults] = useState([1]);
     const menuItems = [
         {
             icon: <FontAwesomeIcon icon={faEarthAsia} />,
@@ -78,30 +74,8 @@ function Header() {
                     <img className={cx('img-logo')} src={require('~/assets/images/tiktok-logo.webp')} alt="tiktok" />
                 </Link>
 
-                <Tippy
-                    visible={searchResults.length > 0}
-                    interactive
-                    render={attrs => (
-                        <PoperWrapper>
-                            <h4 className={cx('search-title')} style={{ marginLeft: '16px ' }}>Tài khoản</h4>
-                            <AccountItem />
-                            <AccountItem />
-                            <AccountItem />
-                            <AccountItem />
-                            <AccountItem />
-                            <AccountItem />
-                        </PoperWrapper>
-                    )}
-                >
-                    <div className={cx('search')}>
-                        <input type="text" className={cx('search-input')} spellCheck={false} placeholder="Search and enter" />
-                        <FontAwesomeIcon className={cx('icon-close')} icon={faCircleXmark} />
-                        <FontAwesomeIcon className={cx('icon-load')} icon={faSpinner} />
-                        <button className={cx('search-btn')} >
-                            <FontAwesomeIcon className={cx('search-icon')} icon={faMagnifyingGlass} />
-                        </button>
-                    </div>
-                </Tippy>
+                {/* Search */}
+                <Search />
 
                 <div className={cx('action')}>
                     {currentUser ?
@@ -111,8 +85,13 @@ function Header() {
                                 <FontAwesomeIcon icon={faPlus} style={{ marginRight: '12px ' }} />
                                 Tải lên
                             </Button>
-                            <MessIcon />
-                            <InboxIcon />
+                            <Button to='/' basic style={{ border: 'none' }}>
+                                <MessIcon />
+                            </Button>
+                            <Button to='/' basic style={{ border: 'none', position: 'relative' }}>
+                                <span className={cx('notification')}>12</span>
+                                <InboxIcon />
+                            </Button>
                             <Menu
                                 items={userItems ? userItems : menuItems}
                                 onChange={handleMenuChange}
