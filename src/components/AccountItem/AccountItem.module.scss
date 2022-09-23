@@ -3,12 +3,18 @@
   padding: 9px 16px;
   align-items: center;
   cursor: pointer;
+  text-decoration: none;
+  color: black;
   .info {
     margin-left: 16px;
   }
   .name {
     font-size: 16px;
   }
+  .fullName {
+    font-weight: 500;
+  }
+
   .infoCheck {
     margin-left: 6px;
     color: rgb(32, 213, 236);

@@ -45,6 +45,15 @@
     top: 14px;
     left: 301px;
     display: block;
+    animation: spinaround 1s linear infinite;
+    @keyframes spinaround {
+      from {
+        transform: rotate(0);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
   }
   &:focus-within {
     border: 1px solid;
