@@ -33,7 +33,6 @@ function Button({
     const classes = cx('wrapper', {
         danger, basic, btnOutlinePrimary, disabled, radius, [className]: className
     })
-    // console.log(className)
     return (
         <Comp className={classes} {...props}>
             {children}

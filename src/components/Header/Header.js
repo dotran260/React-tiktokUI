@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
-// Tippy
+import routes from '~/configs/routes'
 
+// Tippy
 import 'tippy.js/dist/tippy.css'; // optional
 // FontAwesomeIcon
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -15,6 +16,7 @@ import Search from '~/components/Search';
 import classNames from 'classnames/bind';
 import styles from './Header.module.scss';
 let cx = classNames.bind(styles);
+
 function Header() {
     const menuItems = [
         {
@@ -24,8 +26,9 @@ function Header() {
                 title: 'Ngôn ngữ',
                 data: [
                     { type: 'language', code: 'en', title: 'English', },
-                    { type: 'language', code: 'vn', title: 'Việt Nam' },
+                    { type: 'language', code: 'vn', title: 'Việt Nam', },
                     { type: 'language', code: 'ja', title: 'Japan' },
+                    { type: 'language', code: 'en', title: 'Philipin', },
                 ],
             }
         },
@@ -70,7 +73,7 @@ function Header() {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <Link to="/">
+                <Link to={routes.home}>
                     <img className={cx('img-logo')} src={require('~/assets/images/tiktok-logo.webp')} alt="tiktok" />
                 </Link>
 
@@ -95,6 +98,7 @@ function Header() {
                             <Menu
                                 items={userItems ? userItems : menuItems}
                                 onChange={handleMenuChange}
+                                hideOnClick={false}
                             >
                                 <Image className={cx('img-user')} src={require('~/assets/images/kimochi.png')} alt="tiktok" />
                             </Menu>

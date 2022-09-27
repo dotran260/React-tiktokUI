@@ -1,6 +1,10 @@
 .custom-menu {
   width: 230px;
 }
+.menu-scroll {
+  overflow-y: auto;
+  max-height: 400px;
+}
 .menu {
   padding: 10px 8px 10px 16px;
   &:hover {

@@ -5,13 +5,14 @@ import Following from '~/pages/Following/Following'
 import Upload from '~/pages/Upload/Upload'
 import Search from '~/pages/Search'
 import HeaderOnly from '~/components/Layouts/HeaderOnly/HeaderOnly'
-
+import routes from '~/configs/routes'
 const publicRoutes = [
-    { path: '/', component: Home },
-    { path: '/following', component: Following },
-    { path: '/@:profile', component: Profile },
-    { path: '/upload', component: Upload, layout: HeaderOnly },
-    { path: '/search', component: Search, layout: null },
+    { path: '/home', component: Home },
+    { path: routes.home, component: Home },
+    { path: routes.following, component: Following },
+    { path: routes.profile, component: Profile },
+    { path: routes.upload, component: Upload, layout: HeaderOnly },
+    { path: routes.search, component: Search, layout: null },
 
 ]
 const privateRoutes = []
