@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Wrapper as PoperWrapper } from '~/components/Wrapper';
+import PropTypes from 'prop-types';
 // Tippy
 import Tippy from '@tippyjs/react/headless';
 import 'tippy.js/dist/tippy.css'; // optional
@@ -48,7 +49,7 @@ function Menu({ children, items = [], onChange, hideOnClick = false }) {
                         {
                             history.length > 1 ?
                                 <Header
-                                    title={'Ngôn Ngữ'}
+                                    title={current.title}
                                     onBack={() => {
                                         setHistory(prev => prev.slice(0, prev.length - 1));
                                     }}
@@ -65,5 +66,11 @@ function Menu({ children, items = [], onChange, hideOnClick = false }) {
         </Tippy >
     );
 }
+Menu.propTypes = {
+    children: PropTypes.node.isRequired,
+    items: PropTypes.array,
+    onChange: PropTypes.func,
+    hideOnClick: PropTypes.bool,
 
+}
 export default Menu;

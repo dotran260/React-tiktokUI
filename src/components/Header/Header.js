@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import routes from '~/configs/routes'
+import config from '~/configs'
 
 // Tippy
 import 'tippy.js/dist/tippy.css'; // optional
@@ -73,13 +73,12 @@ function Header() {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <Link to={routes.home}>
+                <Link to={config.routes.home}>
                     <img className={cx('img-logo')} src={require('~/assets/images/tiktok-logo.webp')} alt="tiktok" />
                 </Link>
 
                 {/* Search */}
                 <Search />
-
                 <div className={cx('action')}>
                     {currentUser ?
                         // Đã đăng nhập

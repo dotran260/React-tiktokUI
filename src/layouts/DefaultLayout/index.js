@@ -1,7 +1,8 @@
-import Header from '~/components/Layouts/HeaderOnly/HeaderOnly'
+import Header from '~/layouts/HeaderOnly/HeaderOnly'
 import Sidebar from '~/components/Sidebar/Sidebar'
 import classNames from 'classnames/bind';
 import styles from './DefaultLayout.module.scss';
+import PropTypes from 'prop-types';
 let cx = classNames.bind(styles);
 
 function DefaultLayout({ children }) {
@@ -18,5 +19,7 @@ function DefaultLayout({ children }) {
 
     );
 }
-
+DefaultLayout.propTypes = {
+    children: PropTypes.node.isRequired,
+}
 export default DefaultLayout;

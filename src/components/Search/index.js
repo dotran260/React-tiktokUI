@@ -48,15 +48,18 @@ function Search() {
     const handleShowResult = () => {
         setShowResult(false);
     }
-    const handleKeyDown = (e) => {
-        // if (/^\s/.test(inputRef.current.value)) {
-        //     return inputRef.current.value = '';
-        // } //Cách 1
+    const handleChange = (e) => {
         const valueInput = e.target.value;
         if (!valueInput.startsWith(' ')) {
             setSearchValue(valueInput);
         }
-    };
+    }
+
+    // const handleKeyDown = (e) => {
+    //     if (/^\s/.test(inputRef.current.value)) {
+    //         return inputRef.current.value = '';
+    //     }
+    // };
 
     return (
         <span>
@@ -83,8 +86,8 @@ function Search() {
                         spellCheck={false}
                         placeholder="Search and enter"
                         value={searchValue}
-                        onChange={(e) => setSearchValue(e.target.value)}
-                        onInput={handleKeyDown}
+                        onChange={handleChange} //Cách 1
+                        // onInput={handleKeyDown} // Cách 2
                         onFocus={() => setShowResult(true)}
                     />
                     {!!searchValue && !loading &&
